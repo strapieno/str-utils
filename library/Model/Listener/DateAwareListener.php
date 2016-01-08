@@ -1,6 +1,6 @@
 <?php
 
-namespace namespace Strapieno\Utils\Model\Listener;
+namespace Strapieno\Utils\Model\Listener;
 
 use DateTime;
 use Matryoshka\Model\ModelEvent;
