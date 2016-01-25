@@ -3,6 +3,7 @@ namespace Strapieno\Utils\DataStructure;
 
 use Countable;
 use IteratorAggregate;
+use Strapieno\Utils\DataStructure\Exception\InvalidArgumentException;
 use Traversable;
 use ArrayIterator;
 
@@ -11,11 +12,6 @@ use ArrayIterator;
  */
 class RefIdentityCollection implements RefIdentotyCollectionInterface
 {
-    /**
-     * @var array
-     */
-    protected $storageId = [];
-
     /**
      * @var array
      */
@@ -29,7 +25,7 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function count()
     {
-        return count($this->storageId);
+        return count($this->storage);
     }
 
     /**
@@ -49,11 +45,15 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function append(RefIdentityInteface $refIdentity)
     {
-        if (isset($this->storageId[$refIdentity->getRefIdentity()])) {
-            // Exception
+        foreach ($this->storage as $key => $value) {
+            if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
+                throw new InvalidArgumentException(
+                    sprintf('Ref identity object "%s" already present into the storage',
+                    $refIdentity->getRefIdentity())
+                );
+            }
         }
         $this->storage[] = $refIdentity;
-        $this->storageId[[$refIdentity->getRefIdentity()] = true;
         return $this;
     }
 
@@ -63,36 +63,12 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function remove(RefIdentityInteface $refIdentity)
     {
-        if ($this->has($refIdentity)) {
-            /** @var  $value RefIdentityInteface */
-            foreach ($this->storage as $key => $value) {
-                if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
-                    unset($this->storage[$key]);
-                    unset($this->storageId[$refIdentity->getRefIdentity()]);
-                    return true;
-                }
+        foreach ($this->storage as $key => $value) {
+            if ($value->getRefIdentity() == $value->getRefIdentity()) {
+                unset($this->storage[$key]);
+                return true;
             }
         }
-
-        return false;
-    }
-
-    /**
-     * @param RefIdentityInteface $refIdentityOld
-     * @param RefIdentityInteface $refIdentityNew
-     * @return bool
-     */
-    public function update(RefIdentityInteface $refIdentityOld, RefIdentityInteface $refIdentityNew)
-    {
-        if ($this->has($refIdentityOld)) {
-            foreach ($this->storage as $key => $value) {
-                if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
-                    $this->storage[$key] = $refIdentityNew;
-                    return $true;
-                }
-            }
-        }
-
         return false;
     }
 
@@ -102,6 +78,12 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function has(RefIdentityInteface $refIdentity)
     {
-        return isset($this->storageId[$refIdentity->getRefIdentity()]);
+        /** @var $value RefIdentityInteface */
+        foreach ($this->storage as $value) {
+            if ($value->getRefIdentity() == $value->getRefIdentity()) {
+                return true;
+            }
+        }
+        return false;
     }
 }
