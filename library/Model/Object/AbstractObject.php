@@ -1,7 +1,7 @@
 <?php
-
 namespace Strapieno\Utils\Model\Object;
 
+use Strapieno\Utils\Hydrator\Model\Object\ClassMethods;
 use Zend\Stdlib\Hydrator\HydratorAwareTrait;
 
 /**
@@ -11,5 +11,12 @@ abstract class AbstractObject implements ObjectInterface
 {
     use HydratorAwareTrait;
 
-    // TODO ADD DEFAULT HYDRATOR
+    public function getHydrator()
+    {
+        if (!$this->hydrator) {
+            $this->hydrator = new ClassMethods(true);
+        }
+
+        return $this->hydrator;
+    }
 }
