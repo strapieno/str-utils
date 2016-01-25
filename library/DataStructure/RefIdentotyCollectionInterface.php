@@ -29,13 +29,6 @@ interface RefIdentotyCollectionInterface extends Countable, IteratorAggregate
     public function remove(RefIdentityInteface $refIdentity);
 
     /**
-     * @param RefIdentityInteface $refIdentityOld
-     * @param RefIdentityInteface $refIdentityNew
-     * @return $this
-     */
-    public function update(RefIdentityInteface $refIdentityOld, RefIdentityInteface $refIdentityNew);
-
-    /**
      * @param RefIdentityInteface $refIdentity
      * @return boolean
      */

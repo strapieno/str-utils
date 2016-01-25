@@ -5,7 +5,8 @@
   "homepage": "https://github.com/strapieno/str-utils.git",
   "require": {
     "php": ">=5.5.0",
-   "zendframework/zend-crypt": "2.5.1",
+    "zendframework/zend-hydrator": "2.0",
+    "zendframework/zend-crypt": "2.5.1",
     "matryoshka-model/matryoshka": "0.8.*@dev",
     "matryoshka-model/mongo-wrapper": "0.8.*@dev"
   },
