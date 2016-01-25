@@ -4,7 +4,7 @@ namespace Strapieno\Utils\Model\Object\Geolocation;
 /**
  * Class GeolocationAwareInterface
  */
-trait GeolocationAwareInterface
+trait GeolocationAwareTrait
 {
     /**
      * @var GeolocationInterface|null

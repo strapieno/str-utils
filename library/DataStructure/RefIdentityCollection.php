@@ -7,9 +7,9 @@ use Traversable;
 use ArrayIterator;
 
 /**
- * Class AsbtractRefIdentotyCollection
+ * Class RefIdentityCollection
  */
-abstract class AbstractRefIdentotyCollection implements RefIdentotyCollectionInterface
+class RefIdentityCollection implements RefIdentotyCollectionInterface
 {
     /**
      * @var array
