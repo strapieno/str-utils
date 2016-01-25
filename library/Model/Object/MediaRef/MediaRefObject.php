@@ -57,6 +57,6 @@ class MediaRefObject implements MediaRefInterface
      */
     public function getRefIdentity()
     {
-        $this->source = $source;
+        return $this->source;
     }
 }

@@ -45,6 +45,8 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function append(RefIdentityInteface $refIdentity)
     {
+        $this->validateRefIdentity($refIdentity);
+        /** @var $value RefIdentityInteface */
         foreach ($this->storage as $key => $value) {
             if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
                 throw new InvalidArgumentException(
@@ -63,6 +65,8 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function remove(RefIdentityInteface $refIdentity)
     {
+        $this->validateRefIdentity($refIdentity);
+        /** @var $value RefIdentityInteface */
         foreach ($this->storage as $key => $value) {
             if ($value->getRefIdentity() == $value->getRefIdentity()) {
                 unset($this->storage[$key]);
@@ -78,6 +82,7 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     public function has(RefIdentityInteface $refIdentity)
     {
+        $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInteface */
         foreach ($this->storage as $value) {
             if ($value->getRefIdentity() == $value->getRefIdentity()) {
@@ -85,5 +90,18 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
             }
         }
         return false;
+    }
+
+    /**
+     * @param RefIdentityInteface $refIdentity
+     */
+    protected function validateRefIdentity(RefIdentityInteface $refIdentity)
+    {
+        if (!is_string($refIdentity->getRefIdentity())) {
+            throw new InvalidArgumentException(
+                sprintf('Ref identity object must be a string given %s',
+                is_object($refIdentity) ? get_class($refIdentity) : gettype($refIdentity)
+            );
+        }
     }
 }
