@@ -97,10 +97,11 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      */
     protected function validateRefIdentity(RefIdentityInteface $refIdentity)
     {
-        if (!is_string($refIdentity->getRefIdentity())) {
+        $refIdentityValue = $refIdentity->getRefIdentity();
+        if (!is_string($refIdentityValue)) {
             throw new InvalidArgumentException(
                 sprintf('Ref identity object must be a string given %s',
-                is_object($refIdentity) ? get_class($refIdentity) : gettype($refIdentity)
+                    is_object($refIdentityValue) ? get_class($refIdentity) : gettype($refIdentityValue))
             );
         }
     }
