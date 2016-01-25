@@ -13,7 +13,7 @@ use Strapieno\Utils\DataStructure\RefIdentotyCollectionInterface;
 /**
  * Class MediaRefCollection
  */
-interface MediaRefCollection extends RefIdentotyCollectionInterface
+interface MediaRefCollectionInterface extends RefIdentotyCollectionInterface
 {
     /**
      * @param RefIdentityInteface $refIdentity
