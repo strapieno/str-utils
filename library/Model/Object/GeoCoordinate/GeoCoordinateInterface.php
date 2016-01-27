@@ -1,10 +1,12 @@
 <?php
-namespace Strapieno\Utils\Model\Object\Geolocation;
+namespace Strapieno\Utils\Model\Object\GeoCoordinate;
 
 /**
- * Interface GeolocationInterface
+ * Interface GeoCoordinateInterface
+ *
+ * @see https://schema.org/GeoCoordinates
  */
-interface GeolocationInterface
+interface GeoCoordinateInterface
 {
     /**
      * @return string
@@ -27,4 +29,15 @@ interface GeolocationInterface
      * @return $this
      */
     public function setLongitude($longitude);
+
+    /**
+     * @return string
+     */
+    public function getElevation();
+
+    /**
+     * @param string $elevation
+     * @return $this
+     */
+    public function setElevation($elevation);
 }

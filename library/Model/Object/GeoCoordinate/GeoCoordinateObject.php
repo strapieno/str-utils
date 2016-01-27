@@ -1,13 +1,13 @@
 <?php
-namespace Strapieno\Utils\Model\Object\Geolocation;
+namespace Strapieno\Utils\Model\Object\GeoCoordinate;
 
 use Strapieno\Utils\Model\Object\AbstractObject;
 use Strapieno\Utils\Model\Object\ObjectInterface;
 
 /**
- * Class GeolocationInterface
+ * Class GeoCoordinatesObject
  */
-class GeolocationObject extends AbstractObject implements GeolocationInterface, ObjectInterface
+class GeoCoordinateObject extends AbstractObject implements GeoCoordinateInterface, ObjectInterface
 {
     /**
      * @var string
@@ -18,6 +18,11 @@ class GeolocationObject extends AbstractObject implements GeolocationInterface, 
      * @var string
      */
     protected $longitude;
+
+    /**
+     * @var string
+     */
+    protected $elevation;
 
     /**
      * {@inheritdoc}
@@ -50,6 +55,23 @@ class GeolocationObject extends AbstractObject implements GeolocationInterface, 
     public function setLongitude($longitude)
     {
         $this->longitude = $longitude;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getElevation()
+    {
+        return $this->elevation;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setElevation($elevation)
+    {
+        $this->elevation = $elevation;
         return $this;
     }
 }
