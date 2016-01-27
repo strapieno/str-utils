@@ -5,9 +5,9 @@ use Strapieno\Utils\Model\Object\AbstractObject;
 use Strapieno\Utils\Model\Object\ObjectInterface;
 
 /**
- * Class GeoCoordinatesObject
+ * Class GeoCoordinateTrait
  */
-class GeoCoordinateObject extends AbstractObject implements GeoCoordinateInterface, ObjectInterface
+trait GeoCoordinateTrait
 {
     /**
      * @var string

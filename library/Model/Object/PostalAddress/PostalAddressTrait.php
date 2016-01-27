@@ -2,9 +2,9 @@
 namespace Strapieno\Utils\Model\Object\PostalAddress;
 
 /**
- * Class PostalAddressObject
+ * Class PostalAddressTrait
  */
-class PostalAddressObject implements PostalAddressInterface
+trait PostalAddressTrait
 {
     /**
      * Alpha-3 code

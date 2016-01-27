@@ -6,9 +6,9 @@ use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateAwareTrait;
 use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressAwareTrait;
 
 /**
- * Class PlaceObject
+ * Class PlaceTrait
  */
-class PlaceObject extends AbstractObject implements PlaceInterface
+trait PlaceTrait
 {
     use GeoCoordinateAwareTrait;
     use PostalAddressAwareTrait;
@@ -29,7 +29,7 @@ class PlaceObject extends AbstractObject implements PlaceInterface
     protected $name;
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getFaxNumber()
     {
@@ -37,7 +37,8 @@ class PlaceObject extends AbstractObject implements PlaceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param $faxNumber
+     * @return $this
      */
     public function setFaxNumber($faxNumber)
     {
@@ -46,7 +47,7 @@ class PlaceObject extends AbstractObject implements PlaceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getTelephone()
     {
@@ -54,7 +55,8 @@ class PlaceObject extends AbstractObject implements PlaceInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @param $telephone
+     * @return $this
      */
     public function setTelephone($telephone)
     {

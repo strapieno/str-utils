@@ -2,9 +2,9 @@
 namespace Strapieno\Utils\Model\Object\Media;
 
 /**
- * Class MediaObject
+ * Class MediaTrait
  */
-class MediaObject implements MediaInterface
+trait MediaTrait
 {
     /**
      * @var string
