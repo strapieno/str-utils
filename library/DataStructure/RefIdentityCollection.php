@@ -93,6 +93,59 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
     }
 
     /**
+     * Returns whether the requested key exists
+     *
+     * @param  mixed $key
+     * @return bool
+     */
+    public function offsetExists($key)
+    {
+        return isset($this->storage[$key]);
+    }
+
+    /**
+     * Unsets the value at the specified key
+     *
+     * @param  mixed $key
+     * @return void
+     */
+    public function offsetUnset($key)
+    {
+        if ($this->offsetExists($key)) {
+            unset($this->storage[$key]);
+        }
+    }
+
+    /**
+     * Returns the value at the specified key
+     *
+     * @param  mixed $key
+     * @return mixed
+     */
+    public function &offsetGet($key)
+    {
+        $ret = null;
+        if (!$this->offsetExists($key)) {
+            return $ret;
+        }
+        $ret =& $this->storage[$key];
+
+        return $ret;
+    }
+
+    /**
+     * Sets the value at the specified key to value
+     *
+     * @param  mixed $key
+     * @param  mixed $value
+     * @return void
+     */
+    public function offsetSet($key, $value)
+    {
+        $this->storage[$key] = $value;
+    }
+
+    /**
      * @param RefIdentityInteface $refIdentity
      */
     protected function validateRefIdentity(RefIdentityInteface $refIdentity)

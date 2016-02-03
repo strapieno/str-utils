@@ -1,7 +1,9 @@
 <?php
 namespace Strapieno\Utils\Hydrator\Model\Object;
 
+use Zend\Hydrator\Filter\FilterComposite;
 use Zend\Stdlib\Hydrator\ClassMethods as ZendClassMethods;
+use Zend\Stdlib\Hydrator\Filter\MethodMatchFilter;
 
 /**
  * Class ClassMethods

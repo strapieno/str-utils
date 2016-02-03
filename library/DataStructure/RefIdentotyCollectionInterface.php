@@ -1,20 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: visa
- * Date: 23/01/16
- * Time: 17.58
- */
-
 namespace Strapieno\Utils\DataStructure;
 
+use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 
 /**
  * Interface RefIdentotyCollectionInterface
  */
-interface RefIdentotyCollectionInterface extends Countable, IteratorAggregate
+interface RefIdentotyCollectionInterface extends Countable, IteratorAggregate, ArrayAccess
 {
     /**
      * @param RefIdentityInteface $refIdentity
