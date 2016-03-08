@@ -1,1 +1,3 @@
-# Strapieno utils
+Strapieno utils
+---
+> Contain util classes for Strapieno modules

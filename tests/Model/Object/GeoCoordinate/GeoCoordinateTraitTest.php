@@ -6,7 +6,7 @@ use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateObject;
 /**
  * Class GeoCoordinateObjectTest
  */
-class GeoCoordinateObjectTest extends \PHPUnit_Framework_TestCase
+class GeoCoordinateTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var GeoCoordinateObject
