@@ -1,7 +1,7 @@
 <?php
 namespace Strapieno\UtilsTest\Model\Object\PostalAddress;
 
-use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressObject;
+use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressInterface;
 
 /**
  * Class PostalAddressTraitTest
@@ -9,7 +9,7 @@ use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressObject;
 class PostalAddressTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var PostalAddressObject
+     * @var PostalAddressInterface
      */
     protected $mockTrait;
 

@@ -1,8 +1,6 @@
 <?php
 namespace Strapieno\Utils\Model\Object\Media;
 
-use Strapieno\Utils\DataStructure\RefIdentityInteface;
-
 /**
  * Interface MediaInterface
  *

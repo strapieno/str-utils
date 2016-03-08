@@ -1,13 +1,15 @@
 <?php
 namespace Strapieno\UtilsTest\Model\Object\GeoCoordinate;
 
+use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateAwareInterface;
+
 /**
  * Class GeoCoordinateObjectTest
  */
 class GeoCoordinateAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var GeoCoordinateObject
+     * @var GeoCoordinateAwareInterface
      */
     protected $mockTrait;
 

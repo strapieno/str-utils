@@ -1,11 +1,8 @@
 <?php
 namespace Strapieno\Utils\DataStructure;
 
-use Countable;
-use IteratorAggregate;
-use Strapieno\Utils\DataStructure\Exception\InvalidArgumentException;
-use Traversable;
 use ArrayIterator;
+use Strapieno\Utils\DataStructure\Exception\InvalidArgumentException;
 
 /**
  * Class RefIdentityCollection

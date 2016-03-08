@@ -2,7 +2,6 @@
 
 namespace Strapieno\Utils\Listener;
 
-use Zend\EventManager\ListenerAggregateInterface;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\ServiceManager\Config;
 use Zend\ServiceManager\FactoryInterface;

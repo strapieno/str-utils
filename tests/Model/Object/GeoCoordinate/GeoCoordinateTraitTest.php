@@ -1,6 +1,7 @@
 <?php
 namespace Strapieno\UtilsTest\Model\Object\GeoCoordinate;
 
+use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateInterface;
 use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateObject;
 
 /**
@@ -9,7 +10,7 @@ use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateObject;
 class GeoCoordinateTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var GeoCoordinateObject
+     * @var GeoCoordinateInterface
      */
     protected $mockTrait;
 

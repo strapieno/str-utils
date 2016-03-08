@@ -1,9 +1,6 @@
 <?php
 namespace Strapieno\Utils\Model\Object\GeoCoordinate;
 
-use Strapieno\Utils\Model\Object\AbstractObject;
-use Strapieno\Utils\Model\Object\ObjectInterface;
-
 /**
  * Class GeoCoordinateTrait
  */

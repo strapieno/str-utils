@@ -8,7 +8,7 @@ use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressObject;
 /**
  * Class MediaObjectTest
  */
-class MediaTraittTest extends \PHPUnit_Framework_TestCase
+class MediaTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var MediaInterface

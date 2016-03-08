@@ -1,7 +1,6 @@
 <?php
 namespace Strapieno\Utils\Model\Object\Place;
 
-use Strapieno\Utils\Model\Object\AbstractObject;
 use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateAwareTrait;
 use Strapieno\Utils\Model\Object\PostalAddress\PostalAddressAwareTrait;
 

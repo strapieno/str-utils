@@ -1,10 +1,10 @@
 <?php
-namespace Strapieno\UtilsTest\Model\Object\GeoCoordinate;
+namespace Strapieno\UtilsTest\Model\Object\AggregateRating;
 
 use Strapieno\Utils\Model\Object\GeoCoordinate\GeoCoordinateObject;
 
 /**
- * Class GeoCoordinateObjectTest
+ * Class AggregateRatingTraitTest
  */
 class AggregateRatingTraitTest extends \PHPUnit_Framework_TestCase
 {

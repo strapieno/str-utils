@@ -1,12 +1,11 @@
 <?php
 namespace Strapieno\Utils\Listener;
 
-use Matryoshka\Model\Object\ActiveRecord\ActiveRecordInterface;
 use Strapieno\ModelUtils\Entity\IdentityExistAwareInterface;
+use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
-use Zend\EventManager\Event;
 use Zend\Http\Request;
 use Zend\Mvc\MvcEvent;
 use Zend\Uri\UriFactory;

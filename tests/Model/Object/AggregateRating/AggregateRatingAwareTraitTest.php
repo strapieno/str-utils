@@ -1,13 +1,15 @@
 <?php
-namespace Strapieno\UtilsTest\Model\Object\GeoCoordinate;
+namespace Strapieno\UtilsTest\Model\Object\AggregateRating;
+
+use Strapieno\Utils\Model\Object\AggregateRating\AggregateRatingAwareInterface;
 
 /**
- * Class GeoCoordinateObjectTest
+ * Class AggregateRatingAwareTraitTest
  */
 class AggregateRatingAwareTraitTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var GeoCoordinateObject
+     * @var AggregateRatingAwareInterface
      */
     protected $mockTrait;
 
