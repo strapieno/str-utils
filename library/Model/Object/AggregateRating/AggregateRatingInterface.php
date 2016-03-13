@@ -17,7 +17,7 @@ interface AggregateRatingInterface
      * @param array $partial
      * @return $this
      */
-    public function setPartial(array $partial =  []);
+    public function setPartial($partial =  []);
 
     /**
      * @return int

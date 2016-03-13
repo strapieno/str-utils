@@ -3,7 +3,6 @@ namespace Strapieno\Utils\Model\Object\AggregateRating;
 
 /**
  * Interface AggregateRatingTrait
- *
  */
 trait AggregateRatingTrait
 {
@@ -34,7 +33,7 @@ trait AggregateRatingTrait
      * @param array $partial
      * @return $this
      */
-    public function setPartial(array $partial =  [])
+    public function setPartial($partial =  [])
     {
         $this->partial = $partial;
         return $this;
