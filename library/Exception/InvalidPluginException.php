@@ -7,6 +7,4 @@ use DomainException;
 /**
  * Class InvalidPluginException
  */
-class InvalidPluginException extends DomainException{
-
-}
+class InvalidPluginException extends DomainException { }
