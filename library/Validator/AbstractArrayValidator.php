@@ -1,5 +1,4 @@
 <?php
-
 namespace Strapieno\Utils\Validator;
 
 use Zend\ServiceManager\AbstractFactoryInterface;

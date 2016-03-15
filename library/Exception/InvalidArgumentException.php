@@ -6,7 +6,4 @@ use InvalidArgumentException as BaseInvalidArgumentException;
 /**
  * Class InvalidArgumentException
  */
-class InvalidArgumentException extends BaseInvalidArgumentException
-{
-
-}
+class InvalidArgumentException extends BaseInvalidArgumentException { }
