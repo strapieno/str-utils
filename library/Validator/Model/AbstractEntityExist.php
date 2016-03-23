@@ -28,7 +28,7 @@ abstract class AbstractEntityExist extends MongoId implements ValidatorInterface
     /**
      * @return string
      */
-    abstract protected function getModelServiceMethod();
+    abstract protected function getModelMethodService();
 
     /**
      * {@inheritdoc}
@@ -39,13 +39,13 @@ abstract class AbstractEntityExist extends MongoId implements ValidatorInterface
             return false;
         }
 
-        if (!method_exists($this, $this->getModelServiceMethod())) {
+        if (!method_exists($this, $this->getModelMethodService())) {
             throw new InvalidArgumentException(
-                sprintf('%s must be implement %s', get_class($this), $this->getModelServiceMethod())
+                sprintf('%s must be implement %s', get_class($this), $this->getModelMethodService())
             );
         }
 
-        $model = $this->{$this->getModelServiceMethod()};
+        $model = $this->{$this->getModelMethodService()}();
 
         if (!($model instanceof ModelInterface)) {
             throw new InvalidArgumentException(
