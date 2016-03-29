@@ -256,7 +256,16 @@ class Factory
 
         foreach ($inputFilterSpecification as $key => $value) {
 
-            if (null === $value || is_string($value) || is_scalar($value) || $key === 'input_filter') {
+            if ( $key === 'merge') {
+                $this->merge($inputFilter, $inputFilterSpecification['merge']);
+            }
+
+            if (null === $value
+                || is_string($value)
+                || is_scalar($value)
+                || $key === 'input_filter'
+                || $key === 'merge'
+            ) {
                 continue;
             }
 
@@ -456,5 +465,48 @@ class Factory
                 'Invalid validator specification provided; was neither a validator instance nor an array specification'
             );
         }
+    }
+
+    /**
+     * @param InputFilterInterface $inputFilter
+     * @param $merge
+     * @return bool
+     */
+    protected function merge(InputFilterInterface $inputFilter, $merge) {
+
+        if ($inputFilter instanceof CollectionInputFilter) {
+            $inputFilter->getInputFilter();
+        }
+
+        if (is_array($merge)) {
+            foreach ($merge as $inputFilterToMerge) {
+                if ($this->getInputFilterManager()->has($inputFilterToMerge)) {
+                    $inputFilter->merge($this->getInputFilterManager()->get($inputFilterToMerge));
+                } else {
+                    throw new Exception\RuntimeException(
+                        'Service %s not register in the %s',
+                        $inputFilterToMerge,
+                        InputFilterPluginManager::class
+                    );
+                }
+            }
+            return true;
+        } elseif(is_string($merge)) {
+            if ($this->getInputFilterManager()->has($merge)) {
+                $inputFilter->merge($this->getInputFilterManager()->get($merge));
+                return true;
+            } else {
+                throw new Exception\RuntimeException(
+                    'Service %s not register in the %s',
+                    $merge,
+                    InputFilterPluginManager::class
+                );
+            }
+        }
+
+        throw new Exception\InvalidArgumentException(
+            'merge must be an array or a string given %s',
+            is_object($merge) ? get_class($merge) : gettype(merge)
+        );
     }
 }
