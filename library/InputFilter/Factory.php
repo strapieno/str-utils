@@ -128,7 +128,7 @@ class Factory
     public function getInputFilterManager()
     {
         if (null === $this->inputFilterManager) {
-            $this->inputFilterManager = new InputFilterPluginManager(new ServiceManager());
+            $this->inputFilterManager = new InputFilterPluginManager();
         }
 
         return $this->inputFilterManager;

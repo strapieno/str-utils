@@ -1,9 +1,10 @@
 <?php
 namespace Strapieno\Utils\InputFilter;
 
-use Interop\Container\ContainerInterface;
 use Zend\Filter\FilterPluginManager;
+use Zend\InputFilter\Factory;
 use Zend\InputFilter\InputFilterInterface;
+use Zend\InputFilter\InputFilterPluginManager;
 use Zend\ServiceManager\AbstractFactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 use Zend\Validator\ValidatorPluginManager;
@@ -16,34 +17,21 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
     protected $factory;
 
     /**
-     * @param ContainerInterface      $services
-     * @param string                  $rName
-     * @param array                   $options
-     * @return InputFilterInterface
-     */
-    public function __invoke(ContainerInterface $services, $rName, array  $options = null)
-    {
-        $allConfig = $services->get('config');
-        $config    = $allConfig['input_filter_specs'][$rName];
-        $factory   = $this->getInputFilterFactory($services);
-
-        return $factory->createInputFilter($config);
-    }
-
-    /**
-     *
-     * @param ContainerInterface $services
+     * @param ServiceLocatorInterface $inputFilters
      * @param string                  $cName
      * @param string                  $rName
      * @return bool
      */
-    public function canCreate(ContainerInterface $services, $rName)
+    public function canCreateServiceWithName(ServiceLocatorInterface $inputFilters, $cName, $rName)
     {
-        if (! $services->has('config')) {
+        $services = $inputFilters->getServiceLocator();
+        if (! $services instanceof ServiceLocatorInterface
+            || ! $services->has('Config')
+        ) {
             return false;
         }
 
-        $config = $services->get('config');
+        $config = $services->get('Config');
         if (!isset($config['input_filter_specs'][$rName])
             || !is_array($config['input_filter_specs'][$rName])
         ) {
@@ -54,27 +42,6 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
     }
 
     /**
-     * Determine if we can create a service with name (v2)
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     * @param $name
-     * @param $requestedName
-     * @return bool
-     */
-    public function canCreateServiceWithName(ServiceLocatorInterface $serviceLocator, $name, $requestedName)
-    {
-        // v2 => need to get parent service locator
-        $services = $serviceLocator->getServiceLocator();
-
-        // No parent locator => cannot create service.
-        if (! $services) {
-            return false;
-        }
-
-        return $this->canCreate($services, $requestedName);
-    }
-
-    /**
      * @param ServiceLocatorInterface $inputFilters
      * @param string                  $cName
      * @param string                  $rName
@@ -82,28 +49,27 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
      */
     public function createServiceWithName(ServiceLocatorInterface $inputFilters, $cName, $rName)
     {
-        // v2 => need to get parent service locator
-        $services = $inputFilters->getServiceLocator();
+        $services  = $inputFilters->getServiceLocator();
+        $allConfig = $services->get('Config');
+        $config    = $allConfig['input_filter_specs'][$rName];
 
-        // No parent locator => cannot create service.
-        if (! $services) {
-            return false;
-        }
+        $factory   = $this->getInputFilterFactory($services, $inputFilters);
 
-        return $this($services, $rName);
+        return $factory->createInputFilter($config);
     }
 
     /**
      * @param ServiceLocatorInterface $services
+     * @param InputFilterPluginManager $inputFilters
      * @return Factory
      */
-    protected function getInputFilterFactory(ServiceLocatorInterface $services)
+    protected function getInputFilterFactory(ServiceLocatorInterface $services, InputFilterPluginManager $inputFilters)
     {
         if ($this->factory instanceof Factory) {
             return $this->factory;
         }
 
-        $this->factory = new Factory();
+        $this->factory = new Factory($inputFilters);
         $this->factory
             ->getDefaultFilterChain()
             ->setPluginManager($this->getFilterPluginManager($services));
@@ -124,7 +90,7 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
             return $services->get('FilterManager');
         }
 
-        return new FilterPluginManager($services);
+        return new FilterPluginManager();
     }
 
     /**
@@ -137,6 +103,6 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
             return $services->get('ValidatorManager');
         }
 
-        return new ValidatorPluginManager($services);
+        return new ValidatorPluginManager();
     }
 }
