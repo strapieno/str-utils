@@ -2,7 +2,6 @@
 namespace Strapieno\Utils\InputFilter;
 
 use Zend\Filter\FilterPluginManager;
-use Zend\InputFilter\Factory;
 use Zend\InputFilter\InputFilterInterface;
 use Zend\InputFilter\InputFilterPluginManager;
 use Zend\ServiceManager\AbstractFactoryInterface;

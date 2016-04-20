@@ -484,9 +484,11 @@ class Factory
                     $inputFilter->merge($this->getInputFilterManager()->get($inputFilterToMerge));
                 } else {
                     throw new Exception\RuntimeException(
-                        'Service %s not register in the %s',
-                        $inputFilterToMerge,
-                        InputFilterPluginManager::class
+                        sprintf(
+                            'Service %s not register in the %s',
+                            $inputFilterToMerge,
+                            InputFilterPluginManager::class
+                        )
                     );
                 }
             }
@@ -497,16 +499,20 @@ class Factory
                 return true;
             } else {
                 throw new Exception\RuntimeException(
-                    'Service %s not register in the %s',
-                    $merge,
-                    InputFilterPluginManager::class
+                    sprintf(
+                        'Service %s not register in the %s',
+                        $merge,
+                        InputFilterPluginManager::class
+                    )
                 );
             }
         }
 
         throw new Exception\InvalidArgumentException(
-            'merge must be an array or a string given %s',
-            is_object($merge) ? get_class($merge) : gettype(merge)
+            sprintf(
+                'merge must be an array or a string given %s',
+                is_object($merge) ? get_class($merge) : gettype(merge)
+            )
         );
     }
 }
