@@ -32,8 +32,8 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
         }
 
         $config = $services->get('Config');
-        if (!isset($config['input_filter_specs'][$rName])
-            || !is_array($config['input_filter_specs'][$rName])
+        if (!isset($config['strapieno_input_filter_specs'][$rName])
+            || !is_array($config['strapieno_input_filter_specs'][$rName])
         ) {
             return false;
         }
@@ -51,7 +51,7 @@ class InputFilterAbstractServiceFactory implements AbstractFactoryInterface
     {
         $services  = $inputFilters->getServiceLocator();
         $allConfig = $services->get('Config');
-        $config    = $allConfig['input_filter_specs'][$rName];
+        $config    = $allConfig['strapieno_input_filter_specs'][$rName];
 
         $factory   = $this->getInputFilterFactory($services, $inputFilters);
 
