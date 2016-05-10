@@ -4,7 +4,7 @@ namespace Strapieno\Utils\Validator;
 use Zend\Validator\AbstractValidator;
 
 /**
- * Class Longitude
+ * Class Latitude
  */
 class Latitude extends AbstractValidator
 {
