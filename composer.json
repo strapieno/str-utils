@@ -26,5 +26,6 @@
       "Strapieno\\Utils\\": "library/",
       "Strapieno\\UtilsTest\\": "tests/"
     }
-  }
+  },
+  "minimum-stability": "dev"
 }
