@@ -42,7 +42,7 @@ class AttachListenerDelegator implements DelegatorFactoryInterface
                 $eventManager = $instance->getEventManager();
                 foreach ($config[$this->nodeConfig][$requestedName] as $listener) {
                     if ($listenerManager->has($listener)) {
-                        $eventManager->attachAggregate($listenerManager->get($listener));
+                        $eventManager->attach($listenerManager->get($listener));
                     }
                 }
             }

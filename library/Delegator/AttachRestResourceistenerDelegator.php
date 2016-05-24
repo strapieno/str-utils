@@ -12,7 +12,7 @@ use ZF\Rest\RestController;
 /**
  * Class AttachListenerDelegator
  */
-class AttachResourceListenerDelegator implements DelegatorFactoryInterface
+class AttachRestResourceListenerDelegator implements DelegatorFactoryInterface
 {
     /**
      * @var string
@@ -43,7 +43,7 @@ class AttachResourceListenerDelegator implements DelegatorFactoryInterface
                 $eventManager = $resource->getEventManager();
                 foreach ($config[$this->nodeConfig][$requestedName] as $listener) {
                     if ($listenerManager->has($listener)) {
-                        $eventManager->attachAggregate($listenerManager->get($listener));
+                        $eventManager->attach($listenerManager->get($listener));
                     }
                 }
             }
