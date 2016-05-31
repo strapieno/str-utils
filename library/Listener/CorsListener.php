@@ -35,7 +35,7 @@ class CorsListener implements ListenerAggregateInterface
     }
 
     /**
-     * @param Event $e
+     * @param MvcEvent $e
      */
     public function cors(MvcEvent $e)
     {

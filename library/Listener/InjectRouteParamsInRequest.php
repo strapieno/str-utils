@@ -1,6 +1,7 @@
 <?php
 namespace Strapieno\Utils\Listener;
 
+use Zend\Console\Request;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;
@@ -25,6 +26,10 @@ class InjectRouteParamsInRequest implements ListenerAggregateInterface
      */
     public function injectRouteParams(MvcEvent $e)
     {
+        if ($e->getRequest() instanceof Request) {
+            return;
+        }
+
         $config = $e->getApplication()->getServiceManager()->get('Config');
         if (isset($config[self::INJECT_ROUTE_PARAMS]) && is_array($config[self::INJECT_ROUTE_PARAMS])) {
             $injectRouteParamsConfig = $config[self::INJECT_ROUTE_PARAMS];
