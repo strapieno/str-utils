@@ -8,7 +8,7 @@ use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
 /**
- * Class AbstractModelServiceInizilizer
+ * Class AbstractModelServiceInitializer
  */
 abstract class AbstractModelServiceInitializer implements InitializerInterface
 {
