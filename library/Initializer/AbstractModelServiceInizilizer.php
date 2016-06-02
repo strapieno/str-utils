@@ -1,6 +1,6 @@
 <?php
 
-namespace Strapieno\Utils\Inizilizer;
+namespace Strapieno\Utils\Initializer;
 
 use Matryoshka\Model\ModelManager;
 use Zend\ServiceManager\InitializerInterface;
@@ -10,7 +10,7 @@ use Zend\ServiceManager\ServiceLocatorInterface;
 /**
  * Class AbstractModelServiceInizilizer
  */
-abstract class AbstractModelServiceInizilizer implements InitializerInterface
+abstract class AbstractModelServiceInitializer implements InitializerInterface
 {
     const SERVICE_NAME = null;
     const INSTANCE_CLASS = null;
