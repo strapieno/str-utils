@@ -10,7 +10,7 @@ class Longitude extends AbstractValidator
 {
     const INVALID_LONGITUDE  = 'invalidLongitude';
 
-    private $regex = "/^-?([1]?[1-7][1-9]|[1]?[1-8][0]|[1-9]?[0-9])\.{1}\d{1,6}$/";
+    private $regex = "/^-?([1]?[1-7][1-9]|[1]?[1-8][0]|[1-9]?[0-9])\.{1}\d{1,14}$/";
 
     protected $messageTemplates = [
         self::INVALID_LONGITUDE  => 'Longitude format not valid'

@@ -10,7 +10,7 @@ class Latitude extends AbstractValidator
 {
     const INVALID_LATIDUDE = 'invalidLatitude';
 
-    private $regex = "/^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,6}$/";
+    private $regex = "/^-?([1-8]?[1-9]|[1-9]0)\.{1}\d{1,14}$/";
 
     protected $messageTemplates = [
         self::INVALID_LATIDUDE  => 'Latitude format not valid'
