@@ -43,4 +43,16 @@ interface PlaceInterface extends GeoCoordinateAwareInterface, PostalAddressAware
      */
 
     public function setName($name);
+
+    /**
+     * @return string
+     */
+    public function getDescription();
+
+    /**
+     * @param string $name
+     * @return $this
+     */
+
+    public function setDescription($name);
 }

@@ -28,6 +28,11 @@ trait PlaceTrait
     protected $name;
 
     /**
+     * @var string
+     */
+    protected $description;
+
+    /**
      * @return string
      */
     public function getFaxNumber()
@@ -78,6 +83,24 @@ trait PlaceTrait
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
         return $this;
     }
 }
