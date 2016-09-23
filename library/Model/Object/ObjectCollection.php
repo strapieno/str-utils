@@ -2,7 +2,7 @@
 namespace Strapieno\Utils\Model\Object;
 
 use Strapieno\Utils\DataStructure\RefIdentityCollection;
-use Strapieno\Utils\DataStructure\RefIdentotyCollectionInterface;
+use Strapieno\Utils\DataStructure\RefIdentityCollectionInterface;
 use Zend\Hydrator\HydratorAwareInterface;
 use Zend\Hydrator\HydratorAwareTrait;
 
@@ -11,7 +11,7 @@ use Zend\Hydrator\HydratorAwareTrait;
  */
 class ObjectCollection
     extends RefIdentityCollection
-    implements RefIdentotyCollectionInterface, HydratorAwareInterface
+    implements RefIdentityCollectionInterface, HydratorAwareInterface
 {
     use HydratorAwareTrait;
 }

@@ -7,7 +7,7 @@ use Strapieno\Utils\DataStructure\Exception\InvalidArgumentException;
 /**
  * Class RefIdentityCollection
  */
-class RefIdentityCollection implements RefIdentotyCollectionInterface
+class RefIdentityCollection implements RefIdentityCollectionInterface
 {
     /**
      * @var array
@@ -40,7 +40,7 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
      * @param RefIdentityInteface $refIdentity
      * @return $this
      */
-    public function append(RefIdentityInteface $refIdentity)
+    public function append(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInteface */
@@ -57,10 +57,10 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
     }
 
     /**
-     * @param RefIdentityInteface $refIdentity
+     * @param RefIdentityInterface $refIdentity
      * @return bool
      */
-    public function remove(RefIdentityInteface $refIdentity)
+    public function remove(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInteface */
@@ -74,10 +74,10 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
     }
 
     /**
-     * @param RefIdentityInteface $refIdentity
+     * @param RefIdentityInterface $refIdentity
      * @return boolean
      */
-    public function has(RefIdentityInteface $refIdentity)
+    public function has(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInteface */
@@ -143,9 +143,9 @@ class RefIdentityCollection implements RefIdentotyCollectionInterface
     }
 
     /**
-     * @param RefIdentityInteface $refIdentity
+     * @param RefIdentityInterface $refIdentity
      */
-    protected function validateRefIdentity(RefIdentityInteface $refIdentity)
+    protected function validateRefIdentity(RefIdentityInterface $refIdentity)
     {
         $refIdentityValue = $refIdentity->getRefIdentity();
         if (!is_string($refIdentityValue)) {
