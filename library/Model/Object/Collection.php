@@ -1,13 +1,10 @@
 <?php
-namespace Strapieno\Utils\DataStructure;
-
-use ArrayIterator;
-use Strapieno\Utils\DataStructure\Exception\InvalidArgumentException;
+namespace Strapieno\Utils\Model\Object;
 
 /**
- * Class RefIdentityCollection
+ * Class Collection
  */
-class RefIdentityCollection implements RefIdentityCollectionInterface
+class Collection implements CollectionInterface
 {
     /**
      * @var array
@@ -33,22 +30,22 @@ class RefIdentityCollection implements RefIdentityCollectionInterface
      */
     public function getIterator()
     {
-        return new ArrayIterator($this->storage);
+        return new \ArrayIterator($this->storage);
     }
 
     /**
-     * @param RefIdentityInteface $refIdentity
+     * @param RefIdentityInterface $refIdentity
      * @return $this
      */
     public function append(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
-        /** @var $value RefIdentityInteface */
+        /** @var $value RefIdentityInterface */
         foreach ($this->storage as $key => $value) {
             if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
-                throw new InvalidArgumentException(
+                throw new \InvalidArgumentException(
                     sprintf('Ref identity object "%s" already present into the storage',
-                    $refIdentity->getRefIdentity())
+                        $refIdentity->getRefIdentity())
                 );
             }
         }
@@ -63,7 +60,7 @@ class RefIdentityCollection implements RefIdentityCollectionInterface
     public function remove(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
-        /** @var $value RefIdentityInteface */
+        /** @var $value RefIdentityInterface */
         foreach ($this->storage as $key => $value) {
             if ($value->getRefIdentity() == $value->getRefIdentity()) {
                 unset($this->storage[$key]);
@@ -80,7 +77,7 @@ class RefIdentityCollection implements RefIdentityCollectionInterface
     public function has(RefIdentityInterface $refIdentity)
     {
         $this->validateRefIdentity($refIdentity);
-        /** @var $value RefIdentityInteface */
+        /** @var $value RefIdentityInterface */
         foreach ($this->storage as $value) {
             if ($value->getRefIdentity() == $value->getRefIdentity()) {
                 return true;
@@ -149,7 +146,7 @@ class RefIdentityCollection implements RefIdentityCollectionInterface
     {
         $refIdentityValue = $refIdentity->getRefIdentity();
         if (!is_string($refIdentityValue)) {
-            throw new InvalidArgumentException(
+            throw new \InvalidArgumentException(
                 sprintf('Ref identity object must be a string given %s',
                     is_object($refIdentityValue) ? get_class($refIdentity) : gettype($refIdentityValue))
             );

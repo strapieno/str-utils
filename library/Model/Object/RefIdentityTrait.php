@@ -1,5 +1,5 @@
 <?php
-namespace Strapieno\Utils\DataStructure;
+namespace Strapieno\Utils\Model\Object;
 
 /**
  * Interface RefIdentityInteface
@@ -16,15 +16,5 @@ trait RefIdentityTrait
     public function getRefIdentity()
     {
         return $this->refId;
-    }
-
-    /**
-     * @param $refId
-     * @return string
-     */
-    public function setRefIdentity($refId)
-    {
-        $this->refId = $refId;
-        return $this;
     }
 }

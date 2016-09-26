@@ -1,14 +1,14 @@
 <?php
-namespace Strapieno\Utils\DataStructure;
+namespace Strapieno\Utils\Model\Object;
 
 use ArrayAccess;
 use Countable;
 use IteratorAggregate;
 
 /**
- * Interface RefIdentityCollectionInterface
+ * Interface CollectionInterface
  */
-interface RefIdentityCollectionInterface extends Countable, IteratorAggregate, ArrayAccess
+interface CollectionInterface extends Countable, IteratorAggregate, ArrayAccess
 {
     /**
      * @param RefIdentityInterface $refIdentity
