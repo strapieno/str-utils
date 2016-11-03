@@ -22,6 +22,6 @@ class MediaReference extends AbstractObject implements RefIdentityInterface, Med
             throw new \RuntimeException('entityReference must be set');
         }
 
-        $this->getEntityReference()->getId();
+        return $this->getEntityReference()->getId();
     }
 }
