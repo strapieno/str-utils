@@ -62,7 +62,7 @@ class Collection implements CollectionInterface
         $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInterface */
         foreach ($this->storage as $key => $value) {
-            if ($value->getRefIdentity() == $value->getRefIdentity()) {
+            if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
                 unset($this->storage[$key]);
                 return true;
             }
@@ -79,7 +79,7 @@ class Collection implements CollectionInterface
         $this->validateRefIdentity($refIdentity);
         /** @var $value RefIdentityInterface */
         foreach ($this->storage as $value) {
-            if ($value->getRefIdentity() == $value->getRefIdentity()) {
+            if ($value->getRefIdentity() == $refIdentity->getRefIdentity()) {
                 return true;
             }
         }
