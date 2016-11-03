@@ -7,7 +7,7 @@ namespace Strapieno\Utils\Model\Object\EntityReference;
 interface EntityReferenceInterface
 {
     /**
-     * @return null|null|String
+     * @return null|String
      */
     public function getId();
 
