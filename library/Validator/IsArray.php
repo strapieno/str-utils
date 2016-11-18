@@ -16,7 +16,7 @@ class IsArray extends AbstractValidator
      */
     public function isValid($value)
     {
-        if (is_array($value)) {
+        if (!is_array($value)) {
             $this->error(self::NOT_ARRAY);
             return false;
         }
