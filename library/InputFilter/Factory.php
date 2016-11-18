@@ -343,7 +343,12 @@ class Factory
             ));
         }
 
-        return $this->getInputFilterManager()->get($inputFilter);
+        $options = null;
+        if (isset($config['options'])) {
+            $options = $config['options'];
+        }
+
+        return $this->getInputFilterManager()->get($inputFilter, $options);
     }
 
     /**
