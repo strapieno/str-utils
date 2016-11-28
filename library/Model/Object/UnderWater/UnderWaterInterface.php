@@ -9,33 +9,55 @@ interface UnderWaterInterface
     /**
      * @return int
      */
-    public function getBestRating();
+    public function getVisibility();
 
     /**
-     * @param int $bestRating
+     * @param int $visibility
      * @return $this
      */
-    public function setBestRating($bestRating);
+    public function setVisibility($visibility);
 
     /**
      * @return int
      */
-    public function getRatingValue();
+    public function getCurrent();
 
     /**
-     * @param int $ratingValue
+     * @param int $current
      * @return $this
      */
-    public function setRatingValue($ratingValue);
+    public function setCurrent($current);
+
+    /**
+     * @return string
+     */
+    public function getTypeDepth();
+
+    /**
+     * @param string $typeDepth
+     * @return $this
+     */
+    public function setTypeDepth($typeDepth);
 
     /**
      * @return int
      */
-    public function getWorstRating();
+    public function getTemperature();
 
     /**
-     * @param int $worstRating
+     * @param int $temperature
      * @return $this
      */
-    public function setWorstRating($worstRating);
+    public function setTemperature($temperature);
+
+    /**
+     * @return int
+     */
+    public function getDepth();
+
+    /**
+     * @param int $maxDepth
+     * @return $this
+     */
+    public function setDepth($depth);
 }

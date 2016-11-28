@@ -33,14 +33,7 @@ trait UnderWaterTrait
      *
      * @var int
      */
-    protected $maxDepth;
-
-    /**
-     * Meter
-     *
-     * @var int
-     */
-    protected $minDepth;
+    protected $depth;
 
     /**
      * @return int
@@ -117,7 +110,7 @@ trait UnderWaterTrait
     /**
      * @return int
      */
-    public function getMaxDepth()
+    public function getDepth()
     {
         return $this->maxDepth;
     }
@@ -126,27 +119,9 @@ trait UnderWaterTrait
      * @param int $maxDepth
      * @return $this
      */
-    public function setMaxDepth($maxDepth)
+    public function setDepth($depth)
     {
-        $this->maxDepth = $maxDepth;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getMinDepth()
-    {
-        return $this->minDepth;
-    }
-
-    /**
-     * @param int $minDepth
-     * @return $this
-     */
-    public function setMinDepth($minDepth)
-    {
-        $this->minDepth = $minDepth;
+        $this->depth = $depth;
         return $this;
     }
 }
