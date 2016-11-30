@@ -112,7 +112,7 @@ trait UnderWaterTrait
      */
     public function getDepth()
     {
-        return $this->maxDepth;
+        return $this->depth;
     }
 
     /**
