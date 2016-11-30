@@ -1,5 +1,5 @@
 <?php
-namespace Strapieno\Utils\Model\Object\Rating;
+namespace Strapieno\Utils\Model\Object\UnderWater;
 
 /**
  * Interface UnderWaterAwareInterface
