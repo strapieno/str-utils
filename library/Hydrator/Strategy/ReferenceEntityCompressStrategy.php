@@ -32,6 +32,10 @@ class ReferenceEntityCompressStrategy implements StrategyInterface, NullableStra
             return $object->setId($name);
         }
 
+        if ($this->isNullable() && $name == null) {
+            return $name;
+        }
+
         throw new InvalidArgumentException(
             sprintf('name must be a %s given %s', 'String', is_object($name) ? get_class($name) : gettype($name)
             )
@@ -42,6 +46,10 @@ class ReferenceEntityCompressStrategy implements StrategyInterface, NullableStra
     {
         if (is_object($name) && $name instanceof  EntityReferenceInterface) {
             return $name->getId();
+        }
+
+        if ($this->isNullable() && $name == null) {
+            return $name;
         }
 
         throw new InvalidArgumentException(
