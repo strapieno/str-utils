@@ -24,20 +24,14 @@ class MapUnderscoreNamingStrategy extends UnderscoreNamingStrategy implements Na
      */
     public function hydrate($name)
     {
-
-        if (array_key_exists($name, $this->hydrateMap)) {
-            return parent::hydrate($this->hydrateMap[$name]);
-        }
-
-        return parent::hydrate($name);
+        $key = array_search($name, $this->hydrateMap);
+        return parent::extract($key ? $key : $name);
     }
 
     public function extract($name)
     {
-        foreach ($this->hydrateMap as $key => $value) {
-            if ($value === $name) {
-                return $key;
-            }
+        if (isset($this->hydrateMap[$name])) {
+            return $this->hydrateMap[$name];
         }
         return parent::extract($name);
     }
