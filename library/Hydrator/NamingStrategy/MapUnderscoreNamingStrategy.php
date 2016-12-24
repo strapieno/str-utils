@@ -25,7 +25,7 @@ class MapUnderscoreNamingStrategy extends UnderscoreNamingStrategy implements Na
     public function hydrate($name)
     {
         $key = array_search($name, $this->hydrateMap);
-        return parent::extract($key ? $key : $name);
+        return parent::hydrate($key ? $key : $name);
     }
 
     public function extract($name)
