@@ -30,9 +30,10 @@ class MapUnderscoreNamingStrategy extends UnderscoreNamingStrategy implements Na
 
     public function extract($name)
     {
+        $name = parent::extract($name);
         if (isset($this->hydrateMap[$name])) {
             return $this->hydrateMap[$name];
         }
-        return parent::extract($name);
+        return $name;
     }
 }
