@@ -105,11 +105,11 @@ class StateStrategy implements StrategyInterface, StateManagerAwareInterface
      */
     protected function checkPlugin()
     {
-        if (!$this->plugins && !$this->plugins instanceof AbstractPluginManager) {
+        if (!$this->getStateManager() && !$this->getStateManager() instanceof AbstractPluginManager) {
             throw new \RuntimeException(sprintf(
                     'plugins must be an instance of %s given %s',
                     AbstractPluginManager::class,
-                    is_object($this->plugins) ? get_class($this->plugins) : gettype($this->plugins)
+                    is_object($this->getStateManager()) ? get_class($this->getStateManager()) : gettype($this->getStateManager())
                 )
             );
         }
