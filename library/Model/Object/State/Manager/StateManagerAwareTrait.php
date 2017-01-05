@@ -14,12 +14,12 @@ namespace Strapieno\Utils\Model\Object\State\Manager;
 trait StateManagerAwareTrait
 {
     /**
-     * @var StateManager|null
+     * @var AbstractPluginManager|null
      */
     protected $stateManager;
 
     /**
-     * @return StateManager|null
+     * @return AbstractPluginManager|null
      */
     public function getStateManager()
     {
@@ -27,10 +27,10 @@ trait StateManagerAwareTrait
     }
 
     /**
-     * @param StateManager $StateManager
+     * @param AbstractPluginManager $StateManager
      * @return $this
      */
-    public function setStateManager(StateManager $stateManager)
+    public function setStateManager(AbstractPluginManager $stateManager)
     {
         $this->stateManager = $stateManager;
         return $this;
