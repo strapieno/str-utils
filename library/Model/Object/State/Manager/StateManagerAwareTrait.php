@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: visa
- * Date: 05/01/17
- * Time: 1.45
- */
-
 namespace Strapieno\Utils\Model\Object\State\Manager;
+
+use Zend\ServiceManager\AbstractPluginManager;
 
 /**
  * Class StateManagerAwareTrait
