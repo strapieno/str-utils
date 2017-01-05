@@ -3,23 +3,34 @@
 namespace Strapieno\Utils\Hydrator\Strategy;
 
 use Strapieno\Utils\Model\Entity\StateInterface;
+use Strapieno\Utils\Model\Object\State\Manager\StateManager;
+use Strapieno\Utils\Model\Object\State\Manager\StateManagerAwareInterface;
+use Strapieno\Utils\Model\Object\State\Manager\StateManagerAwareTrait;
 use Zend\ServiceManager\AbstractPluginManager;
 use Zend\Stdlib\Hydrator\Strategy\StrategyInterface;
 
 /**
  * Class StateStrategy
  */
-abstract class StateStrategy implements StrategyInterface
+class StateStrategy implements StrategyInterface, StateManagerAwareInterface
 {
-    /**
-     * @var AbstractPluginManager
-     */
-    protected $plugins;
+    use StateManagerAwareTrait;
 
     /**
      * @var StateInterface|null
      */
     protected $firstStateName;
+
+    /**
+     * StateStrategy constructor.
+     * @param null|StateInterface $firstStateName
+     */
+    public function __construct()
+    {
+        if (!$this->stateManager) {
+            $this->setStateManager(new StateManager());
+        }
+    }
 
     /**
      * @param null|StateInterface $firstState
@@ -47,7 +58,7 @@ abstract class StateStrategy implements StrategyInterface
             return $value->getName();
         }
 
-        if (empty($value) && $this->checkPlugin() && $this->plugins->has($this->firstStateName)) {
+        if (empty($value) && $this->checkPlugin() && $this->getStateManager()->has($this->firstStateName)) {
             return $this->firstStateName;
         }
         // FIXME is correct? or exception
@@ -69,8 +80,8 @@ abstract class StateStrategy implements StrategyInterface
 
         if (is_string($value)) {
 
-            if ($this->checkPlugin() && $this->plugins->has($value)) {
-                return $this->plugins->get($value);
+            if ($this->checkPlugin() && $this->getStateManager()->has($value)) {
+                return $this->getStateManager()->get($value);
             }
 
             throw new \RuntimeException(sprintf(
@@ -81,8 +92,8 @@ abstract class StateStrategy implements StrategyInterface
             );
         }
 
-        if (empty($value) && $this->checkPlugin() && $this->plugins->has($this->firstStateName)) {
-            return $this->plugins->has($this->firstStateName);
+        if (empty($value) && $this->checkPlugin() && $this->getStateManager()->has($this->firstStateName)) {
+            return $this->getStateManager()->has($this->firstStateName);
         }
 
         // FIXME is correct? or exception
