@@ -2,11 +2,12 @@
 namespace Strapieno\Utils\Model\Object\State;
 
 use BadMethodCallException;
+use Strapieno\Utils\Model\Entity\StateInterface as BaseStateInterface;
 
 /**
  * Class AbstractState
  */
-abstract class AbstractState implements StateInterface
+abstract class AbstractState implements StateInterface, BaseStateInterface
 {
     /**
      * @var string
