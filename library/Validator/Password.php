@@ -13,7 +13,7 @@ class Password extends AbstractValidator implements ValidatorInterface
     const NOT_DIGIT = 'noDigit';
     const NOT_SPECIAL = 'noSpecial';
 
-    protected $specialCharacter = '/[-_{}|<>?~]/';
+    protected $specialCharacter = '[-_{}|<>?!~]';
 
     protected $messageTemplates = [
         self::NO_UPPER_CASE => "The input must contain at least one uppercase character",
