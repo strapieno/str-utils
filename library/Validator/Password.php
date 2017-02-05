@@ -40,7 +40,7 @@ class Password extends AbstractValidator implements ValidatorInterface
             return false;
         }
 
-        if (preg_match($this->getSpecialCharacter(), $value) === 0) {
+        if (preg_match('/' . $this->getSpecialCharacter() . '/', $value) === 0) {
             $this->error(self::NOT_SPECIAL);
             return false;
         }
